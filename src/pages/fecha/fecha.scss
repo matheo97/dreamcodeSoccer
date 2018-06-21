@@ -1,0 +1,39 @@
+page-fecha {
+
+    .small-cards {
+      width: 10px;
+      height: 10px;
+    }
+
+    .left-card{
+      position: absolute;
+      left: 30px;
+    }
+
+    .center{
+      text-align: center;
+    }
+
+    ion-slides {
+      height: auto !important;
+    }
+
+    ion-content {
+      position: relative;
+      top: 40px;
+    }
+
+    ion-toolbar{
+      height: 50px;
+    }
+
+    ion-card {
+        background-color: #fff;
+        width: 100%;
+        margin: 0;
+        margin-bottom: 25px;
+        position: relative;
+        top: -30px;
+    }
+
+}

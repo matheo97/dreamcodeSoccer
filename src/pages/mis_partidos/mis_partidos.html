@@ -1,0 +1,142 @@
+<ion-content padding>
+  <br>
+  <br>
+  <br>
+
+  <!-- current match -->
+  <ion-card>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <img src="assets/soccer-shields/png/001-barcelona.png" alt="">
+          </ion-col>
+          <ion-col col-6>
+            <div>
+              <br>
+              <h1 class="center">2    -    0</h1>
+              <h2 class="center">Remaining: 3</h2>
+            </div>
+          </ion-col>
+          <ion-col col-3>
+            <img src="assets/soccer-shields/png/012-lazio.png" alt="">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- background for the segment section -->
+  <figure class="full-width">
+    <img src="assets/imgs/banner_mispartidos_tab_cortada.jpg" class="responsive">
+  </figure>
+
+  <!-- segment controls -->
+  <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
+    <ion-segment-button value="played">
+        Jugados
+    </ion-segment-button>
+    <ion-segment-button value="willBePlay">
+        Por Jugar
+    </ion-segment-button>
+  </ion-segment>
+
+  <!-- List of matches -->
+  <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)">
+    <ion-slide>
+      <ion-card *ngFor="let match of matches_played">
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-3>
+                <img src="assets/soccer-shields/png/001-barcelona.png" alt="">
+              </ion-col>
+              <ion-col col-6>
+                <div>
+                  <br>
+                  <h1 class="center">1    -    0</h1>
+                  <div>
+                    <ion-row>
+                      <ion-col col-4>
+                        <img src="assets/imgs/Yellow_card.png" class="small-cards left-card">
+                      </ion-col>
+                      <ion-col col-4>
+                        <h1 class="center" style="font-size:13px;">3 - 0</h1>
+                      </ion-col>
+                      <ion-col col-4>
+                        <img src="assets/imgs/Yellow_card.png" class="small-cards">
+                      </ion-col>
+                   </ion-row>
+                   <ion-row>
+                     <ion-col col-4>
+                       <img src="assets/imgs/Red_card.png" class="small-cards left-card">
+                     </ion-col>
+                     <ion-col col-4>
+                       <h1 class="center" style="font-size:13px;">1 - 2</h1>
+                     </ion-col>
+                     <ion-col col-4>
+                       <img src="assets/imgs/Red_card.png" class="small-cards">
+                     </ion-col>
+                  </ion-row>
+                  </div>
+                </div>
+              </ion-col>
+              <ion-col col-3>
+                <img src="assets/soccer-shields/png/022-manchester-united.png" alt="">
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card *ngFor="let match of matches_played">
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col col-3>
+                <img src="assets/soccer-shields/png/001-barcelona.png" alt="">
+              </ion-col>
+              <ion-col col-6>
+                <div>
+                  <br>
+                  <h1 class="center">    vs    </h1>
+                  <div>
+                    <ion-row>
+                      <ion-col col-4>
+                        <img src="assets/imgs/Yellow_card.png" class="small-cards left-card">
+                      </ion-col>
+                      <ion-col col-4>
+                        <h1 class="center" style="font-size:13px;"> - </h1>
+                      </ion-col>
+                      <ion-col col-4>
+                        <img src="assets/imgs/Yellow_card.png" class="small-cards">
+                      </ion-col>
+                   </ion-row>
+                   <ion-row>
+                     <ion-col col-4>
+                       <img src="assets/imgs/Red_card.png" class="small-cards left-card">
+                     </ion-col>
+                     <ion-col col-4>
+                       <h1 class="center" style="font-size:13px;"> - </h1>
+                     </ion-col>
+                     <ion-col col-4>
+                       <img src="assets/imgs/Red_card.png" class="small-cards">
+                     </ion-col>
+                  </ion-row>
+                  </div>
+                </div>
+              </ion-col>
+              <ion-col col-3>
+                <img src="assets/soccer-shields/png/017-paris-saint-germain.png" alt="">
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+
+</ion-content>
