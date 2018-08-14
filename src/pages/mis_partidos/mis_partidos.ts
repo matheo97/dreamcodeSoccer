@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController , Slides } from 'ionic-angular';
+import { NavController , Slides , ToastController} from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'page-mis_partidos',
@@ -15,7 +16,7 @@ export class MisPartidosPage {
 
 
 
-  constructor(public navCtrl: NavController) {
+  constructor(private afAuth : AngularFireAuth, private toast : ToastController, public navCtrl: NavController) {
 
     this.matches_played = new Array(5);
     this.selectedSegment = "played";
@@ -43,6 +44,25 @@ export class MisPartidosPage {
     console.log('Slide changed');
     const currentSlide = this.slides[slider.getActiveIndex()];
     this.selectedSegment = currentSlide.id;
+  }
+
+  ionViewWillLoad(){
+    this.afAuth.authState.subscribe(data => {
+
+        if(data && data.email && data.uid){
+          this.toast.create({
+            message: "Welcome to the dreamcodesoccer app ${data.email}",
+            duration: 3000
+          }).present()
+        }
+        else{
+          this.toast.create({
+            message: "Could not find authentication details",
+            duration: 3000
+          }).present()
+        }
+
+    });
   }
 
 }

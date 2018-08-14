@@ -1,9 +1,257 @@
+<ion-toolbar>
+  <ion-row>
+    <ion-col col-2>
+      <button ion-button icon-only (click)="onSlideChangedLeft($event)">
+        <ion-icon name="arrow-dropleft-circle"></ion-icon>
+      </button>
+    </ion-col>
+    <ion-col col-8>
+      <h1 class="center">{{ currentSlide }}</h1>
+    </ion-col>
+    <ion-col col-2>
+      <button ion-button icon-only (click)="onSlideChangedRight($event)">
+        <ion-icon name="arrow-dropright-circle"></ion-icon>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-toolbar>
+
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+<ion-slides  #tablaSlider (ionSlideDidChange)="onSlideChangedByFinger($event)">
+  <ion-slide *ngFor="let tabla of tablas | async">
+    <div style="overflow-x:auto;">
+    <table style="width:100%;">
+      <tr>
+        <th>Equipo</th>
+        <th>PJ</th>
+        <th>GF</th>
+        <th>GC</th>
+        <th>DF</th>
+        <th>PT</th>
+      </tr>
+      <tr *ngFor="let partido of tabla.partidos">
+        <td>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="assets/soccer-shields/png/001-barcelona.png" class="escudo">
+              </ion-col>
+              <ion-col class="team-name" col-8>
+                Barcelona
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </td>
+
+        <td>3</td>
+        <td>1</td>
+        <td>6</td>
+        <td>3</td>
+        <td>1</td>
+      </tr>
+
+      <!-- ejemplos -->
+      <tr>
+        <td>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="assets/soccer-shields/png/022-manchester-united.png" class="escudo">
+              </ion-col>
+              <ion-col class="team-name" col-8>
+                Manchester UD
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </td>
+
+        <td>3</td>
+        <td>1</td>
+        <td>6</td>
+        <td>3</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="assets/soccer-shields/png/017-paris-saint-germain.png" class="escudo">
+              </ion-col>
+              <ion-col class="team-name" col-8>
+                Manchester City
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </td>
+
+        <td>3</td>
+        <td>1</td>
+        <td>6</td>
+        <td>3</td>
+        <td>1</td>
+      </tr>
+    </table>
+  </div>
+  </ion-slide>
+
+  <ion-slide>
+    <div style="overflow-x:auto;">
+    <table style="width:100%;">
+      <tr>
+        <th>Equipo</th>
+        <th></th>
+        <th></th>
+        <th>TA</th>
+        <th></th>
+        <th>TR</th>
+      </tr>
+      <tr>
+        <td>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="assets/soccer-shields/png/001-barcelona.png" class="escudo">
+              </ion-col>
+              <ion-col class="team-name" col-8>
+                Barcelona
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </td>
+
+        <td></td>
+        <td></td>
+        <td>6</td>
+        <td></td>
+        <td>1</td>
+      </tr>
+
+      <!-- ejemplos -->
+      <tr>
+        <td>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="assets/soccer-shields/png/022-manchester-united.png" class="escudo">
+              </ion-col>
+              <ion-col class="team-name" col-8>
+                Manchester UD
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </td>
+
+        <td></td>
+        <td></td>
+        <td>6</td>
+        <td></td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="assets/soccer-shields/png/017-paris-saint-germain.png" class="escudo">
+              </ion-col>
+              <ion-col class="team-name" col-8>
+                Manchester City
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </td>
+
+        <td></td>
+        <td></td>
+        <td>6</td>
+        <td></td>
+        <td>1</td>
+      </tr>
+    </table>
+  </div>
+  </ion-slide>
+
+  <ion-slide>
+    <div style="overflow-x:auto;">
+    <table style="width:100%;">
+      <tr>
+        <th>Equipo</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Goles</th>
+      </tr>
+      <tr>
+        <td>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="assets/soccer-shields/png/001-barcelona.png" class="escudo">
+              </ion-col>
+              <ion-col class="team-name" col-8>
+                Barcelona
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </td>
+
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>3</td>
+      </tr>
+
+      <!-- ejemplos -->
+      <tr>
+        <td>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="assets/soccer-shields/png/022-manchester-united.png" class="escudo">
+              </ion-col>
+              <ion-col class="team-name" col-8>
+                Manchester UD
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </td>
+
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <img src="assets/soccer-shields/png/017-paris-saint-germain.png" class="escudo">
+              </ion-col>
+              <ion-col class="team-name" col-8>
+                Manchester City
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </td>
+
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1</td>
+      </tr>
+    </table>
+  </div>
+  </ion-slide>
+
+</ion-slides>
+
+
 </ion-content>

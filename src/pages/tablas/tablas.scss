@@ -1,3 +1,41 @@
-page-contact {
+page-tablas {
+
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+
+  th, td {
+      text-align: center;
+      padding: 8px;
+  }
+
+  td {
+      font-size: 13px;
+  }
+
+  tr:nth-child(even){background-color: #f2f2f2}
+
+  th {
+      background-color: #4CAF50;
+      color: white;
+  }
+
+  ion-slides {
+    height: auto !important;
+  }
+
+  .team-name {
+    line-height: 38px;
+    height: 50px;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  .escudo {
+    width: auto;
+    height: 35px;
+  }
+
 
 }

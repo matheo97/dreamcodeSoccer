@@ -1,6 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Slides} from 'ionic-angular';
 
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'page-fecha',
   templateUrl: 'fecha.html'
@@ -12,10 +15,13 @@ export class FechaPage {
   matches_example: any;
   currentSlide:any;
 
-  constructor(public navCtrl: NavController) {
+  fechas: Observable<any[]>;
+
+  constructor(public navCtrl: NavController, afDB: AngularFireDatabase) {
 
     this.matches_example = new Array(5);
     this.currentSlide = 1;
+    this.fechas = afDB.list('fecha').valueChanges();
   }
 
   //Controles desde el toolBar
