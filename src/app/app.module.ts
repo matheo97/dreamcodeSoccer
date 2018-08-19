@@ -13,13 +13,15 @@ import { RegistrarPage } from '../pages/registrar/registrar';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { PipesModule } from '../pipes/pipes.module';
 
 //Firebase
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { CargaTablasProvider } from '../providers/carga-tablas/carga-tablas';
+
 
 export const firebaseConfig = {
 
@@ -48,7 +50,8 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -59,13 +62,14 @@ export const firebaseConfig = {
     PerfilPage,
     TabsPage,
     LoginPage,
-    RegistrarPage
+    RegistrarPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CargaTablasProvider
   ]
 })
 export class AppModule {}

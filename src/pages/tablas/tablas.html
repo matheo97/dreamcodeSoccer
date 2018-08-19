@@ -23,235 +23,113 @@
   <br>
   <br>
   <br>
-<ion-slides  #tablaSlider (ionSlideDidChange)="onSlideChangedByFinger($event)">
-  <ion-slide *ngFor="let tabla of tablas | async">
-    <div style="overflow-x:auto;">
-    <table style="width:100%;">
-      <tr>
-        <th>Equipo</th>
-        <th>PJ</th>
-        <th>GF</th>
-        <th>GC</th>
-        <th>DF</th>
-        <th>PT</th>
-      </tr>
-      <tr *ngFor="let partido of tabla.partidos">
-        <td>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img src="assets/soccer-shields/png/001-barcelona.png" class="escudo">
-              </ion-col>
-              <ion-col class="team-name" col-8>
-                Barcelona
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </td>
+  <ion-slides  #tablaSlider (ionSlideDidChange)="onSlideChangedByFinger($event)">
+    <ion-slide>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;">
+          <tr>
+            <th>Equipo</th>
+            <th>PJ</th>
+            <th>GF</th>
+            <th>GC</th>
+            <th>DF</th>
+            <th>PT</th>
+          </tr>
+          <tr *ngFor="let equipo of cargaTablas.equiposTabla1 | reversePipe">
+            <td>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <img src="assets/soccer-shields/png/{{ equipo.nombre }}.png" class="escudo">
+                  </ion-col>
+                  <ion-col class="team-name" col-8>
+                    {{ equipo.nombre }}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </td>
 
-        <td>3</td>
-        <td>1</td>
-        <td>6</td>
-        <td>3</td>
-        <td>1</td>
-      </tr>
+            <td>{{ equipo.partidosJugados }}</td>
+            <td>{{ equipo.goles }}</td>
+            <td>{{ equipo.golesContra }}</td>
+            <td>{{ equipo.diferenciaGol }}</td>
+            <td>{{ equipo.puntos }}</td>
 
-      <!-- ejemplos -->
-      <tr>
-        <td>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img src="assets/soccer-shields/png/022-manchester-united.png" class="escudo">
-              </ion-col>
-              <ion-col class="team-name" col-8>
-                Manchester UD
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </td>
+          </tr>
+        </table>
+     </div>
+    </ion-slide>
 
-        <td>3</td>
-        <td>1</td>
-        <td>6</td>
-        <td>3</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img src="assets/soccer-shields/png/017-paris-saint-germain.png" class="escudo">
-              </ion-col>
-              <ion-col class="team-name" col-8>
-                Manchester City
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </td>
+    <ion-slide>
+      <div style="overflow-x:auto;">
+      <table style="width:100%;">
+        <tr>
+          <th>Equipo</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>Goles</th>
+        </tr>
+        <tr *ngFor="let equipo of cargaTablas.equiposTabla2 | reversePipe">
+          <td>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <img src="assets/soccer-shields/png/{{ equipo.nombre }}.png" class="escudo">
+                </ion-col>
+                <ion-col class="team-name" col-8>
+                  {{ equipo.nombre }}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </td>
 
-        <td>3</td>
-        <td>1</td>
-        <td>6</td>
-        <td>3</td>
-        <td>1</td>
-      </tr>
-    </table>
-  </div>
-  </ion-slide>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ equipo.goles }}</td>
+        </tr>
+      </table>
+      </div>
+    </ion-slide>
 
-  <ion-slide>
-    <div style="overflow-x:auto;">
-    <table style="width:100%;">
-      <tr>
-        <th>Equipo</th>
-        <th></th>
-        <th></th>
-        <th>TA</th>
-        <th></th>
-        <th>TR</th>
-      </tr>
-      <tr>
-        <td>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img src="assets/soccer-shields/png/001-barcelona.png" class="escudo">
-              </ion-col>
-              <ion-col class="team-name" col-8>
-                Barcelona
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </td>
+    <ion-slide>
+      <div style="overflow-x:auto;">
+      <table style="width:100%;">
+        <tr>
+          <th>Equipo</th>
+          <th></th>
+          <th>TA</th>
+          <th></th>
+          <th>TR</th>
+          <th></th>
+          <th>Total</th>
+        </tr>
+        <tr *ngFor="let equipo of cargaTablas.equiposTabla3 | reversePipe">
+          <td>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <img src="assets/soccer-shields/png/{{ equipo.nombre }}.png" class="escudo">
+                </ion-col>
+                <ion-col class="team-name" col-8>
+                  {{ equipo.nombre }}
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </td>
 
-        <td></td>
-        <td></td>
-        <td>6</td>
-        <td></td>
-        <td>1</td>
-      </tr>
-
-      <!-- ejemplos -->
-      <tr>
-        <td>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img src="assets/soccer-shields/png/022-manchester-united.png" class="escudo">
-              </ion-col>
-              <ion-col class="team-name" col-8>
-                Manchester UD
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </td>
-
-        <td></td>
-        <td></td>
-        <td>6</td>
-        <td></td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img src="assets/soccer-shields/png/017-paris-saint-germain.png" class="escudo">
-              </ion-col>
-              <ion-col class="team-name" col-8>
-                Manchester City
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </td>
-
-        <td></td>
-        <td></td>
-        <td>6</td>
-        <td></td>
-        <td>1</td>
-      </tr>
-    </table>
-  </div>
-  </ion-slide>
-
-  <ion-slide>
-    <div style="overflow-x:auto;">
-    <table style="width:100%;">
-      <tr>
-        <th>Equipo</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th>Goles</th>
-      </tr>
-      <tr>
-        <td>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img src="assets/soccer-shields/png/001-barcelona.png" class="escudo">
-              </ion-col>
-              <ion-col class="team-name" col-8>
-                Barcelona
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </td>
-
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>3</td>
-      </tr>
-
-      <!-- ejemplos -->
-      <tr>
-        <td>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img src="assets/soccer-shields/png/022-manchester-united.png" class="escudo">
-              </ion-col>
-              <ion-col class="team-name" col-8>
-                Manchester UD
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </td>
-
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                <img src="assets/soccer-shields/png/017-paris-saint-germain.png" class="escudo">
-              </ion-col>
-              <ion-col class="team-name" col-8>
-                Manchester City
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </td>
-
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>1</td>
-      </tr>
-    </table>
-  </div>
-  </ion-slide>
+          <td></td>
+          <td>{{ equipo.tarjetasA }}</td>
+          <td></td>
+          <td>{{ equipo.tarjetasR }}</td>
+          <td></td>
+          <td>{{ equipo.totalTarjetas }}</td>
+        </tr>
+      </table>
+      </div>
+    </ion-slide>
 
 </ion-slides>
-
 
 </ion-content>

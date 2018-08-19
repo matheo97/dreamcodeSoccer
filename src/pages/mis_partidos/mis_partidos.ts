@@ -49,18 +49,18 @@ export class MisPartidosPage {
   ionViewWillLoad(){
     this.afAuth.authState.subscribe(data => {
 
-        if(data && data.email && data.uid){
-          this.toast.create({
-            message: "Welcome to the dreamcodesoccer app ${data.email}",
-            duration: 3000
-          }).present()
-        }
-        else{
-          this.toast.create({
-            message: "Could not find authentication details",
-            duration: 3000
-          }).present()
-        }
+        // if(data && data.email && data.uid){
+        //   this.toast.create({
+        //     message: "Welcome to the dreamcodesoccer app ${data.email}",
+        //     duration: 3000
+        //   }).present()
+        // }
+        // else{
+        //   this.toast.create({
+        //     message: "Could not find authentication details",
+        //     duration: 3000
+        //   }).present()
+        // }
 
     });
   }
