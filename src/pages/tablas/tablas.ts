@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Slides} from 'ionic-angular';
 import { Observable } from 'rxjs';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { CargaTablasProvider } from "../../providers/carga-tablas/carga-tablas";
+import { PipesModule } from '../../pipes/pipes.module';
 
 @Component({
   selector: 'page-tablas',
@@ -13,15 +14,15 @@ export class TablasPage {
   slides: any;
   currentSlide:any;
 
-  tablas: Observable<any[]>;
-
-  constructor(public navCtrl: NavController, afDB: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, private cargaTablas: CargaTablasProvider, private pipeModule: PipesModule) {
 
     this.currentSlide = 1;
-    this.tablas = afDB.list('tablas').valueChanges();
-    
+    console.log('Hello Tablas Page');
+
   }
 
+  //Eventos slide con las flechitas.
+  
   onSlideChangedLeft(event) {
     console.log('Slide try to change prev');
     this.slider.lockSwipeToNext(false);
@@ -39,7 +40,6 @@ export class TablasPage {
         this.slider.lockSwipeToPrev(true);
 
     }
-
   }
 
   onSlideChangedRight(event) {
