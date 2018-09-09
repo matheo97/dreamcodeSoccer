@@ -22,8 +22,8 @@
   <ion-slides  #fechaSlider (ionSlideDidChange)="onSlideChangedByFinger($event)">
 
 
-    <ion-slide *ngFor="let fecha of fechas | async">
-      <ion-card *ngFor="let partido of fecha.partidos">
+    <ion-slide *ngFor="let fecha of cargaFechas.todosPartidos">
+      <ion-card *ngFor="let partido of fecha">
 
         <ion-card-content *ngIf="partido.jugado == true">
           <ion-grid>

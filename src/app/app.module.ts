@@ -21,6 +21,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { CargaTablasProvider } from '../providers/carga-tablas/carga-tablas';
+import { CargaFechasProvider } from '../providers/carga-fechas/carga-fechas';
+import { HttpClientModule } from '@angular/common/http';
 
 
 export const firebaseConfig = {
@@ -51,7 +53,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    PipesModule
+    PipesModule,
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -69,7 +72,8 @@ export const firebaseConfig = {
     SplashScreen,
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CargaTablasProvider
+    CargaTablasProvider,
+    CargaFechasProvider
   ]
 })
 export class AppModule {}
