@@ -7,7 +7,7 @@
       </button>
     </ion-col>
     <ion-col col-8>
-      <h1 class="center">Fecha {{ currentSlide }}</h1>
+      <h1 class="center">Fecha {{ cargaFechas.fechaActual }}</h1>
     </ion-col>
     <ion-col col-2>
       <button ion-button icon-only (click)="onSlideChangedRight($event)">
@@ -18,11 +18,12 @@
 </ion-toolbar>
 
 
-<ion-content padding>
+<ion-content padding class="FechaPage">
+
   <ion-slides  #fechaSlider (ionSlideDidChange)="onSlideChangedByFinger($event)">
 
-
     <ion-slide *ngFor="let fecha of cargaFechas.todosPartidos">
+
       <ion-card *ngFor="let partido of fecha">
 
         <ion-card-content *ngIf="partido.jugado == true">
@@ -112,7 +113,9 @@
         </ion-card-content>
 
       </ion-card>
+
     </ion-slide>
 
   </ion-slides>
+
 </ion-content>

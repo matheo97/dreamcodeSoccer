@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, Slides} from 'ionic-angular';
+import { NavController, Slides, Events} from 'ionic-angular';
 import { CargaFechasProvider } from "../../providers/carga-fechas/carga-fechas";
 
 @Component({
@@ -13,11 +13,10 @@ export class FechaPage {
   matches_example: any;
   currentSlide:any;
 
-  constructor(public navCtrl: NavController, public cargaFechas: CargaFechasProvider) {
+  constructor(public navCtrl: NavController, public cargaFechas: CargaFechasProvider, public events: Events) {
 
-    this.matches_example = new Array(5);
-    this.currentSlide = 2;
-    console.log(this.cargaFechas.fechaActual);
+    this.currentSlide = 3;
+    console.log(cargaFechas.fechaActual);
 
   }
 
