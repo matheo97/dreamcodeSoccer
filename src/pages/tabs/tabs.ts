@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { FechaPage } from '../fecha/fecha';
 import { TablasPage } from '../tablas/tablas';
 import { MisPartidosPage } from '../mis_partidos/mis_partidos';
@@ -15,8 +14,6 @@ export class TabsPage {
   tab3Root = TablasPage;
   tab4Root = PerfilPage;
 
-  constructor() {
-
-  }
+  constructor() {}
 
 }

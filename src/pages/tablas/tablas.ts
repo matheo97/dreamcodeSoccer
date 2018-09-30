@@ -20,9 +20,10 @@ export class TablasPage {
     console.log('Hello Tablas Page');
 
   }
+  
 
   //Eventos slide con las flechitas.
-  
+
   onSlideChangedLeft(event) {
     console.log('Slide try to change prev');
     this.slider.lockSwipeToNext(false);
@@ -58,8 +59,6 @@ export class TablasPage {
         this.slider.lockSwipeToNext(true);
     }
   }
-
-  //eventos slide generados por los controles del toolbar
 
   onSlideChangedByFinger(event) {
     console.log('Slide changed by finger');

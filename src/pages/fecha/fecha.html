@@ -18,12 +18,13 @@
 </ion-toolbar>
 
 
-<ion-content padding>
+<ion-content padding class="FechaPage">
+
   <ion-slides  #fechaSlider (ionSlideDidChange)="onSlideChangedByFinger($event)">
 
+    <ion-slide *ngFor="let fecha of cargaFechas.todosPartidos">
 
-    <ion-slide *ngFor="let fecha of fechas | async">
-      <ion-card *ngFor="let partido of fecha.partidos">
+      <ion-card *ngFor="let partido of fecha">
 
         <ion-card-content *ngIf="partido.jugado == true">
           <ion-grid>
@@ -115,4 +116,5 @@
     </ion-slide>
 
   </ion-slides>
+
 </ion-content>
