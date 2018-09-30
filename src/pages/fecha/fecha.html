@@ -7,7 +7,7 @@
       </button>
     </ion-col>
     <ion-col col-8>
-      <h1 class="center">Fecha {{ cargaFechas.fechaActual }}</h1>
+      <h1 class="center">Fecha {{ currentSlide }}</h1>
     </ion-col>
     <ion-col col-2>
       <button ion-button icon-only (click)="onSlideChangedRight($event)">
@@ -113,7 +113,6 @@
         </ion-card-content>
 
       </ion-card>
-
     </ion-slide>
 
   </ion-slides>

@@ -1,26 +1,30 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, Slides, Events} from 'ionic-angular';
+import { Slides } from 'ionic-angular';
 import { CargaFechasProvider } from "../../providers/carga-fechas/carga-fechas";
 
 @Component({
   selector: 'page-fecha',
   templateUrl: 'fecha.html'
 })
-export class FechaPage {
+export class FechaPage{
 
   @ViewChild('fechaSlider') slider: Slides;
-  slides: any;
-  matches_example: any;
   currentSlide:any;
 
-  constructor(public navCtrl: NavController, public cargaFechas: CargaFechasProvider, public events: Events) {
+  constructor(public cargaFechas: CargaFechasProvider) {}
 
-    this.currentSlide = 3;
-    console.log(cargaFechas.fechaActual);
-
+  ngAfterViewChecked(){
+     setTimeout(()=>
+     {
+       if(this.slider)
+       {
+         this.slider.slideTo(this.cargaFechas.fechaActual);
+         this.currentSlide = this.slider.getActiveIndex() + 1;
+       }
+     },300);
   }
 
-  //Controles desde el toolBar
+  //toolbar button handling
 
   onSlideChangedLeft(event) {
     console.log('Slide try to change prev');
@@ -58,8 +62,6 @@ export class FechaPage {
         this.slider.lockSwipeToNext(true);
     }
   }
-
-  //eventos slide generados por los controles del toolbar
 
   onSlideChangedByFinger(event) {
     console.log('Slide changed by finger');
